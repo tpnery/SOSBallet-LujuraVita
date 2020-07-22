@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5d729db5e68b4fbd817e8e71a2c132f5" Name="Diagram1">
+        <EntityTypeShape EntityType="SOSBalletBDModel.Administrador" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOSBalletBDModel.Alongamento" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOSBalletBDModel.Bailarino" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOSBalletBDModel.ControleUso" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOSBalletBDModel.Materia" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOSBalletBDModel.PontuacaoSimulado" Width="1.5" PointX="8" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOSBalletBDModel.Quiz" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOSBalletBDModel.Sapatilha" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOSBalletBDModel.Simulado" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="SOSBalletBDModel.FK__Pontuacao__IDBai__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="SOSBalletBDModel.FK__Simulado__IDMate__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="SOSBalletBDModel.FK__Quiz__IDSapatilh__73BA3083" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

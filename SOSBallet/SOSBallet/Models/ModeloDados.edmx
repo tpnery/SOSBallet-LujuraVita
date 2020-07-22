@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SOSBalletBDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SOSBalletBDModelStoreContainer">
+    <EntitySet Name="Administrador" EntityType="SOSBalletBDModel.Store.Administrador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Alongamento" EntityType="SOSBalletBDModel.Store.Alongamento" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bailarino" EntityType="SOSBalletBDModel.Store.Bailarino" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ControleUso" EntityType="SOSBalletBDModel.Store.ControleUso" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Materia" EntityType="SOSBalletBDModel.Store.Materia" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PontuacaoSimulado" EntityType="SOSBalletBDModel.Store.PontuacaoSimulado" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Quiz" EntityType="SOSBalletBDModel.Store.Quiz" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sapatilha" EntityType="SOSBalletBDModel.Store.Sapatilha" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Simulado" EntityType="SOSBalletBDModel.Store.Simulado" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Pontuacao__IDBai__5535A963" Association="SOSBalletBDModel.Store.FK__Pontuacao__IDBai__5535A963">
+      <End Role="Bailarino" EntitySet="Bailarino" />
+      <End Role="PontuacaoSimulado" EntitySet="PontuacaoSimulado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Simulado__IDMate__52593CB8" Association="SOSBalletBDModel.Store.FK__Simulado__IDMate__52593CB8">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="Simulado" EntitySet="Simulado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Quiz__IDSapatilh__73BA3083" Association="SOSBalletBDModel.Store.FK__Quiz__IDSapatilh__73BA3083">
+      <End Role="Sapatilha" EntitySet="Sapatilha" />
+      <End Role="Quiz" EntitySet="Quiz" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Administrador">
+    <Key>
+      <PropertyRef Name="IDAdm" />
+    </Key>
+    <Property Name="IDAdm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Login" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Senha" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Alongamento">
+    <Key>
+      <PropertyRef Name="IDAlongamento" />
+    </Key>
+    <Property Name="IDAlongamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nivel" Type="int" Nullable="true" />
+    <Property Name="NomeExercicio" Type="varchar" Nullable="true" MaxLength="30" />
+    <Property Name="DescExercicio" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Bailarino">
+    <Key>
+      <PropertyRef Name="IDBailarino" />
+    </Key>
+    <Property Name="IDBailarino" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Login" Type="varchar" Nullable="true" MaxLength="20" />
+    <Property Name="Senha" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ConfirmarSenha" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="NivelAlongamento" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ControleUso">
+    <Key>
+      <PropertyRef Name="IDControle" />
+    </Key>
+    <Property Name="IDControle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TempoNaSemana" Type="int" Nullable="true" />
+    <Property Name="Plissado" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Sola" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Aproveitamento" Type="varchar" Nullable="true" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="Materia">
+    <Key>
+      <PropertyRef Name="IDMateria" />
+    </Key>
+    <Property Name="IDMateria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Capítulo" Type="varchar" Nullable="true" MaxLength="30" />
+    <Property Name="Pagina" Type="varchar" Nullable="true" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="PontuacaoSimulado">
+    <Key>
+      <PropertyRef Name="IDPontuacao" />
+    </Key>
+    <Property Name="IDPontuacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Potuacao" Type="int" Nullable="true" />
+    <Property Name="IDBailarino" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Quiz">
+    <Key>
+      <PropertyRef Name="IDQuiz" />
+    </Key>
+    <Property Name="IDQuiz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoPe" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="LarguraPe" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="TempoNasPontas" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="DuracaoAnterior" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ColoPe" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Tamanho" Type="int" Nullable="true" />
+    <Property Name="IDSapatilha" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Sapatilha">
+    <Key>
+      <PropertyRef Name="IDSapatilha" />
+    </Key>
+    <Property Name="IDSapatilha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="TipoPe" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="LarguraPe" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="TempoNasPontas" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="DuracaoAnterior" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ColoPe" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Tamanho" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Simulado">
+    <Key>
+      <PropertyRef Name="IDSimulado" />
+    </Key>
+    <Property Name="IDSimulado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pergunta" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="Resposta" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="IDMateria" Type="int" Nullable="true" />
+  </EntityType>
+  <Association Name="FK__Pontuacao__IDBai__5535A963">
+    <End Role="Bailarino" Type="SOSBalletBDModel.Store.Bailarino" Multiplicity="0..1" />
+    <End Role="PontuacaoSimulado" Type="SOSBalletBDModel.Store.PontuacaoSimulado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bailarino">
+        <PropertyRef Name="IDBailarino" />
+      </Principal>
+      <Dependent Role="PontuacaoSimulado">
+        <PropertyRef Name="IDBailarino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Simulado__IDMate__52593CB8">
+    <End Role="Materia" Type="SOSBalletBDModel.Store.Materia" Multiplicity="0..1" />
+    <End Role="Simulado" Type="SOSBalletBDModel.Store.Simulado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="IDMateria" />
+      </Principal>
+      <Dependent Role="Simulado">
+        <PropertyRef Name="IDMateria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Quiz__IDSapatilh__73BA3083">
+    <End Role="Sapatilha" Type="SOSBalletBDModel.Store.Sapatilha" Multiplicity="0..1" />
+    <End Role="Quiz" Type="SOSBalletBDModel.Store.Quiz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sapatilha">
+        <PropertyRef Name="IDSapatilha" />
+      </Principal>
+      <Dependent Role="Quiz">
+        <PropertyRef Name="IDSapatilha" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SOSBalletBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="IDAdm" />
+          </Key>
+          <Property Name="IDAdm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Senha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Alongamento">
+          <Key>
+            <PropertyRef Name="IDAlongamento" />
+          </Key>
+          <Property Name="IDAlongamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nivel" Type="Int32" />
+          <Property Name="NomeExercicio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DescExercicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Bailarino">
+          <Key>
+            <PropertyRef Name="IDBailarino" />
+          </Key>
+          <Property Name="IDBailarino" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Senha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmarSenha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NivelAlongamento" Type="Int32" />
+          <NavigationProperty Name="PontuacaoSimulado" Relationship="Self.FK__Pontuacao__IDBai__5535A963" FromRole="Bailarino" ToRole="PontuacaoSimulado" />
+        </EntityType>
+        <EntityType Name="ControleUso">
+          <Key>
+            <PropertyRef Name="IDControle" />
+          </Key>
+          <Property Name="IDControle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TempoNaSemana" Type="Int32" />
+          <Property Name="Plissado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Aproveitamento" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="IDMateria" />
+          </Key>
+          <Property Name="IDMateria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Capítulo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Pagina" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Simulado" Relationship="Self.FK__Simulado__IDMate__52593CB8" FromRole="Materia" ToRole="Simulado" />
+        </EntityType>
+        <EntityType Name="PontuacaoSimulado">
+          <Key>
+            <PropertyRef Name="IDPontuacao" />
+          </Key>
+          <Property Name="IDPontuacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Potuacao" Type="Int32" />
+          <Property Name="IDBailarino" Type="Int32" />
+          <NavigationProperty Name="Bailarino" Relationship="Self.FK__Pontuacao__IDBai__5535A963" FromRole="PontuacaoSimulado" ToRole="Bailarino" />
+        </EntityType>
+        <EntityType Name="Quiz">
+          <Key>
+            <PropertyRef Name="IDQuiz" />
+          </Key>
+          <Property Name="IDQuiz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoPe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LarguraPe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TempoNasPontas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DuracaoAnterior" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ColoPe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tamanho" Type="Int32" />
+          <Property Name="IDSapatilha" Type="Int32" />
+          <NavigationProperty Name="Sapatilha" Relationship="Self.FK__Quiz__IDSapatilh__73BA3083" FromRole="Quiz" ToRole="Sapatilha" />
+        </EntityType>
+        <EntityType Name="Sapatilha">
+          <Key>
+            <PropertyRef Name="IDSapatilha" />
+          </Key>
+          <Property Name="IDSapatilha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TipoPe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LarguraPe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TempoNasPontas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DuracaoAnterior" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ColoPe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tamanho" Type="Int32" />
+          <NavigationProperty Name="Quiz" Relationship="Self.FK__Quiz__IDSapatilh__73BA3083" FromRole="Sapatilha" ToRole="Quiz" />
+        </EntityType>
+        <EntityType Name="Simulado">
+          <Key>
+            <PropertyRef Name="IDSimulado" />
+          </Key>
+          <Property Name="IDSimulado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pergunta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Resposta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDMateria" Type="Int32" />
+          <NavigationProperty Name="Materia" Relationship="Self.FK__Simulado__IDMate__52593CB8" FromRole="Simulado" ToRole="Materia" />
+        </EntityType>
+        <Association Name="FK__Pontuacao__IDBai__5535A963">
+          <End Role="Bailarino" Type="Self.Bailarino" Multiplicity="0..1" />
+          <End Role="PontuacaoSimulado" Type="Self.PontuacaoSimulado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bailarino">
+              <PropertyRef Name="IDBailarino" />
+            </Principal>
+            <Dependent Role="PontuacaoSimulado">
+              <PropertyRef Name="IDBailarino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Simulado__IDMate__52593CB8">
+          <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+          <End Role="Simulado" Type="Self.Simulado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="IDMateria" />
+            </Principal>
+            <Dependent Role="Simulado">
+              <PropertyRef Name="IDMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Quiz__IDSapatilh__73BA3083">
+          <End Role="Sapatilha" Type="Self.Sapatilha" Multiplicity="0..1" />
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sapatilha">
+              <PropertyRef Name="IDSapatilha" />
+            </Principal>
+            <Dependent Role="Quiz">
+              <PropertyRef Name="IDSapatilha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SOSBalletBDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" />
+          <EntitySet Name="Alongamento" EntityType="Self.Alongamento" />
+          <EntitySet Name="Bailarino" EntityType="Self.Bailarino" />
+          <EntitySet Name="ControleUso" EntityType="Self.ControleUso" />
+          <EntitySet Name="Materia" EntityType="Self.Materia" />
+          <EntitySet Name="PontuacaoSimulado" EntityType="Self.PontuacaoSimulado" />
+          <EntitySet Name="Quiz" EntityType="Self.Quiz" />
+          <EntitySet Name="Sapatilha" EntityType="Self.Sapatilha" />
+          <EntitySet Name="Simulado" EntityType="Self.Simulado" />
+          <AssociationSet Name="FK__Pontuacao__IDBai__5535A963" Association="Self.FK__Pontuacao__IDBai__5535A963">
+            <End Role="Bailarino" EntitySet="Bailarino" />
+            <End Role="PontuacaoSimulado" EntitySet="PontuacaoSimulado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Simulado__IDMate__52593CB8" Association="Self.FK__Simulado__IDMate__52593CB8">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="Simulado" EntitySet="Simulado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Quiz__IDSapatilh__73BA3083" Association="Self.FK__Quiz__IDSapatilh__73BA3083">
+            <End Role="Sapatilha" EntitySet="Sapatilha" />
+            <End Role="Quiz" EntitySet="Quiz" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SOSBalletBDModelStoreContainer" CdmEntityContainer="SOSBalletBDEntities">
+    <EntitySetMapping Name="Administrador">
+      <EntityTypeMapping TypeName="IsTypeOf(SOSBalletBDModel.Administrador)">
+        <MappingFragment StoreEntitySet="Administrador">
+          <ScalarProperty Name="IDAdm" ColumnName="IDAdm" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alongamento">
+      <EntityTypeMapping TypeName="IsTypeOf(SOSBalletBDModel.Alongamento)">
+        <MappingFragment StoreEntitySet="Alongamento">
+          <ScalarProperty Name="IDAlongamento" ColumnName="IDAlongamento" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="NomeExercicio" ColumnName="NomeExercicio" />
+          <ScalarProperty Name="DescExercicio" ColumnName="DescExercicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bailarino">
+      <EntityTypeMapping TypeName="IsTypeOf(SOSBalletBDModel.Bailarino)">
+        <MappingFragment StoreEntitySet="Bailarino">
+          <ScalarProperty Name="IDBailarino" ColumnName="IDBailarino" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="ConfirmarSenha" ColumnName="ConfirmarSenha" />
+          <ScalarProperty Name="NivelAlongamento" ColumnName="NivelAlongamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ControleUso">
+      <EntityTypeMapping TypeName="IsTypeOf(SOSBalletBDModel.ControleUso)">
+        <MappingFragment StoreEntitySet="ControleUso">
+          <ScalarProperty Name="IDControle" ColumnName="IDControle" />
+          <ScalarProperty Name="TempoNaSemana" ColumnName="TempoNaSemana" />
+          <ScalarProperty Name="Plissado" ColumnName="Plissado" />
+          <ScalarProperty Name="Sola" ColumnName="Sola" />
+          <ScalarProperty Name="Aproveitamento" ColumnName="Aproveitamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materia">
+      <EntityTypeMapping TypeName="IsTypeOf(SOSBalletBDModel.Materia)">
+        <MappingFragment StoreEntitySet="Materia">
+          <ScalarProperty Name="IDMateria" ColumnName="IDMateria" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Capítulo" ColumnName="Capítulo" />
+          <ScalarProperty Name="Pagina" ColumnName="Pagina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PontuacaoSimulado">
+      <EntityTypeMapping TypeName="IsTypeOf(SOSBalletBDModel.PontuacaoSimulado)">
+        <MappingFragment StoreEntitySet="PontuacaoSimulado">
+          <ScalarProperty Name="IDPontuacao" ColumnName="IDPontuacao" />
+          <ScalarProperty Name="Potuacao" ColumnName="Potuacao" />
+          <ScalarProperty Name="IDBailarino" ColumnName="IDBailarino" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quiz">
+      <EntityTypeMapping TypeName="IsTypeOf(SOSBalletBDModel.Quiz)">
+        <MappingFragment StoreEntitySet="Quiz">
+          <ScalarProperty Name="IDQuiz" ColumnName="IDQuiz" />
+          <ScalarProperty Name="TipoPe" ColumnName="TipoPe" />
+          <ScalarProperty Name="LarguraPe" ColumnName="LarguraPe" />
+          <ScalarProperty Name="TempoNasPontas" ColumnName="TempoNasPontas" />
+          <ScalarProperty Name="DuracaoAnterior" ColumnName="DuracaoAnterior" />
+          <ScalarProperty Name="ColoPe" ColumnName="ColoPe" />
+          <ScalarProperty Name="Tamanho" ColumnName="Tamanho" />
+          <ScalarProperty Name="IDSapatilha" ColumnName="IDSapatilha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sapatilha">
+      <EntityTypeMapping TypeName="IsTypeOf(SOSBalletBDModel.Sapatilha)">
+        <MappingFragment StoreEntitySet="Sapatilha">
+          <ScalarProperty Name="IDSapatilha" ColumnName="IDSapatilha" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="TipoPe" ColumnName="TipoPe" />
+          <ScalarProperty Name="LarguraPe" ColumnName="LarguraPe" />
+          <ScalarProperty Name="TempoNasPontas" ColumnName="TempoNasPontas" />
+          <ScalarProperty Name="DuracaoAnterior" ColumnName="DuracaoAnterior" />
+          <ScalarProperty Name="ColoPe" ColumnName="ColoPe" />
+          <ScalarProperty Name="Tamanho" ColumnName="Tamanho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Simulado">
+      <EntityTypeMapping TypeName="IsTypeOf(SOSBalletBDModel.Simulado)">
+        <MappingFragment StoreEntitySet="Simulado">
+          <ScalarProperty Name="IDSimulado" ColumnName="IDSimulado" />
+          <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+          <ScalarProperty Name="Resposta" ColumnName="Resposta" />
+          <ScalarProperty Name="IDMateria" ColumnName="IDMateria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
